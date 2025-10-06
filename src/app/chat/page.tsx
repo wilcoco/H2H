@@ -1,11 +1,12 @@
+import Link from "next/link";
 export default function ChatPage() {
   return (
     <div className="min-h-screen p-6 space-y-6">
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Chat</h1>
         <nav className="space-x-3 text-sm">
-          <a className="underline" href="/compose">정리하기</a>
-          <a className="underline" href="/cards">카드</a>
+          <Link className="underline" href="/compose">정리하기</Link>
+          <Link className="underline" href="/cards">카드</Link>
         </nav>
       </header>
 
@@ -22,7 +23,7 @@ export default function ChatPage() {
         <textarea className="w-full rounded-md border p-3 h-28" placeholder="무엇을 알고 싶으신가요?" />
         <div className="flex gap-2">
           <button className="rounded-md bg-black text-white px-4 py-2 text-sm">질문하기</button>
-          <a href="/compose" className="rounded-md border px-4 py-2 text-sm">정리하기</a>
+          <Link href="/compose" className="rounded-md border px-4 py-2 text-sm">정리하기</Link>
         </div>
       </section>
     </div>

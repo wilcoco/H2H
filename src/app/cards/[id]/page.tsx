@@ -1,3 +1,4 @@
+import Link from "next/link";
 type Props = { params: Promise<{ id: string }> };
 
 export default async function CardDetailPage({ params }: Props) {
@@ -7,8 +8,8 @@ export default async function CardDetailPage({ params }: Props) {
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">카드 상세</h1>
         <nav className="space-x-3 text-sm">
-          <a className="underline" href="/cards">목록</a>
-          <a className="underline" href="/compose">정리하기</a>
+          <Link className="underline" href="/cards">목록</Link>
+          <Link className="underline" href="/compose">정리하기</Link>
         </nav>
       </header>
 

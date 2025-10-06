@@ -1,11 +1,12 @@
+import Link from "next/link";
 export default function ComposePage() {
   return (
     <div className="min-h-screen p-6 space-y-6">
       <header className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">정리 화면 Composer</h1>
         <nav className="space-x-3 text-sm">
-          <a className="underline" href="/chat">Chat</a>
-          <a className="underline" href="/cards">카드</a>
+          <Link className="underline" href="/chat">Chat</Link>
+          <Link className="underline" href="/cards">카드</Link>
         </nav>
       </header>
 
