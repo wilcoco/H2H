@@ -1,0 +1,48 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum CardStatus {
+  DRAFT
+  UNDER_REVIEW
+  PUBLISHED
+  CHALLENGED
+}
+
+enum EvidenceReliability {
+  UNSET
+  AUTHORITY
+  PRIMARY
+  SECONDARY
+  BLOG
+  FORUM
+}
+
+model Card {
+  id        String      @id @default(cuid())
+  question  String
+  aiAnswer  String
+  claim     String
+  summary   String
+  tags      String[]
+  status    CardStatus  @default(DRAFT)
+  evidences Evidence[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Evidence {
+  id          String               @id @default(cuid())
+  card        Card                 @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  cardId      String
+  url         String?
+  title       String?
+  snippet     String?
+  reliability EvidenceReliability  @default(UNSET)
+  createdAt   DateTime             @default(now())
+}
